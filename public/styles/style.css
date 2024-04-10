@@ -45,13 +45,21 @@ p:has(em) {
 
 /* The buttons */
 #buttons {
-    position: sticky;
+    position: absolute;
     left: 0;
     right: 0;
     bottom: 2vh;
-    padding: 0 10vw;
+    margin: 0 15vw;
     display: flex;
     justify-content: space-between;
+    height: 5vh;
+    align-items: center;
+
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 #buttons input {
@@ -63,6 +71,15 @@ p:has(em) {
     cursor: pointer;
 }
 
+#prevpage {
+    opacity: 0;
+}
+
+#buttons input:hover {
+    background-color: black;
+    color: white;
+}
+
 /* -------- */
 /* THE MENU */
 /* -------- */
@@ -70,7 +87,8 @@ p:has(em) {
 #menu {
     display: flex;
     position: absolute;
-    right: -200px;
+    right: -235px;
+    top: 2vh; 
     gap: 0;
 }
 
@@ -82,6 +100,7 @@ p:has(em) {
     background-color: #9ac5d5;
     border: none;
     padding: .75em 1em;
+    font-size: 1em;
     transform: rotate(-180deg);
     cursor: pointer;
     writing-mode: tb-rl;
@@ -90,10 +109,24 @@ p:has(em) {
 
 #menu .options {
     background-color: #cddce9;
+    padding: .75em 1em;
 }
 
 .showmenu {
     right: 0 !important;
+}
+
+/* ---------------------- */
+/* SELECT TEXT WITH CLICK */
+/* ---------------------- */
+
+.selectable {
+    user-select: none; /* Prevent text selection outside of our custom selection */
+}
+
+.selection {
+    background-color: yellow;
+    display: inline;
 }
 
 /* -------------- */
