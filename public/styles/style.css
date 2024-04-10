@@ -1,0 +1,111 @@
+@font-face {
+    font-family: Merriweather;
+    src: url("/fonts/Merriweather-Regular.ttf");
+}
+
+body {
+    font-family: Merriweather, serif;
+    padding: 2vh 10vw;
+}
+
+h1 {
+    font-size: clamp(1.25em, .5em + 2vw, 2.25em);
+    margin-bottom: 0;
+}
+
+h5 {
+    font-style: italic;
+    margin-top: 0;
+}
+
+p {
+    font-weight: 100;
+    line-height: 1.75em;
+}
+
+p:has(em) {
+    text-align: center;
+}
+
+/* ---------- */
+/* PAGINATION */
+/* ---------- */
+
+.pages > .page:not(:first-of-type) {
+    display: none;
+}
+
+.showpage {
+    display: block !important;
+}
+
+.hidepage {
+    display: none;
+}
+
+/* The buttons */
+#buttons {
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: 2vh;
+    padding: 0 10vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+#buttons input {
+    padding: .75em 1.5em;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+/* -------- */
+/* THE MENU */
+/* -------- */
+
+#menu {
+    display: flex;
+    position: absolute;
+    right: -200px;
+    gap: 0;
+}
+
+#menu > * {
+    margin: 0;
+}
+
+#menu input[type=button] {
+    background-color: #9ac5d5;
+    border: none;
+    padding: .75em 1em;
+    transform: rotate(-180deg);
+    cursor: pointer;
+    writing-mode: tb-rl;
+
+}
+
+#menu .options {
+    background-color: #cddce9;
+}
+
+.showmenu {
+    right: 0 !important;
+}
+
+/* -------------- */
+/* RESPONSIVENESS */
+/* -------------- */
+
+@media (min-width: 750px) {
+    body {
+        padding: 2vh 15vw;
+    }
+
+    #buttons {
+        padding: 0;
+    }
+}

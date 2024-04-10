@@ -1,0 +1,24 @@
+{
+  "name": "hcd",
+  "version": "1.0.0",
+  "description": "My repo for the Human Centered Design course of the Web Design & Development minor at AUAS, academic year 23-24.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "nodemon server.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briannededeugd/hcd.git"
+  },
+  "author": "Brianne de Deugd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briannededeugd/hcd/issues"
+  },
+  "homepage": "https://github.com/briannededeugd/hcd#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
