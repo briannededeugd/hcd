@@ -21,12 +21,46 @@ h5 {
 p {
     font-weight: 100;
     line-height: 1.75em;
+    font-size: .9em;
 }
 
 p:has(em) {
     text-align: center;
 }
 
+span {
+    transition: all ease-in-out .2s;
+}
+
+span:hover {
+    font-size: larger;
+}
+
+span:hover,
+.selected {
+    padding: 0 .25em;
+    background-color: lightblue;
+    cursor: copy;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    /* justify-content: space-between; */
+}
+
+textarea {
+    margin-top: 3.5vh;
+    height: 450px;
+    width: 300px;
+}
+
+.active {
+    background-color: black !important;
+    color: white !important;
+}
 /* ---------- */
 /* PAGINATION */
 /* ---------- */
@@ -62,11 +96,14 @@ p:has(em) {
     -webkit-backdrop-filter: blur(5px);
 }
 
-#buttons input {
+#buttons input,
+.interaction button,
+#clear {
     padding: .75em 1.5em;
     font-size: 1em;
     border-radius: 5px;
     background-color: white;
+    color: black;
     border: 1px solid black;
     cursor: pointer;
 }
@@ -75,9 +112,29 @@ p:has(em) {
     opacity: 0;
 }
 
-#buttons input:hover {
+#buttons input:hover,
+.interaction button:hover,
+#clear:hover {
     background-color: black;
     color: white;
+}
+
+/* ------- */
+/* CONTENT */
+/* ------- */
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.story {
+    grid-area: 1 / 1 / 5 / 9;
+}
+
+.interaction {
+    grid-area: 5 / 1 / 6 / 8;
 }
 
 /* -------- */
@@ -87,7 +144,7 @@ p:has(em) {
 #menu {
     display: flex;
     position: absolute;
-    right: -235px;
+    right: -300px;
     top: 2vh; 
     gap: 0;
 }
@@ -96,15 +153,30 @@ p:has(em) {
     margin: 0;
 }
 
-#menu input[type=button] {
-    background-color: #9ac5d5;
-    border: none;
+#menu label:has(input[type=checkbox]) {
+    background-color: white;
+    border: black solid 1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: .75em 1em;
     font-size: 1em;
     transform: rotate(-180deg);
     cursor: pointer;
+    text-align: center;
     writing-mode: tb-rl;
+}
 
+#menu label:has(input[type=checkbox]:checked) {
+    background-color: black;
+    color: white;
+}
+
+input[type=checkbox] {
+    height: 0.1px;
+    width: 0.1px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
 }
 
 #menu .options {
@@ -135,10 +207,18 @@ p:has(em) {
 
 @media (min-width: 750px) {
     body {
-        padding: 2vh 15vw;
+        padding: 2vh 5vw;
     }
 
     #buttons {
         padding: 0;
+    }
+
+    .story {
+        grid-area: 1 / 1 / 8 / 6;
+    }
+
+    .interaction {
+        grid-area: 1 / 7 / 8 / 8;
     }
 }
