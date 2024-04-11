@@ -1,7 +1,10 @@
-const express = require("express");
-const http = require("http");
-const { fileURLToPath } = require("url");
-const { dirname } = require("path");
+import express from "express";
+import http from "http";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 app.use(express.static(__dirname + "/public"));
@@ -16,5 +19,3 @@ app.get("/", (req, res) => {
 server.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 });
-
-module.exports = app;
