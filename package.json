@@ -19,6 +19,7 @@
   "homepage": "https://github.com/briannededeugd/hcd#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "vercel": "^34.0.0"
   }
 }
