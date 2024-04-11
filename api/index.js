@@ -1,9 +1,9 @@
-import express from "express";
-import http from "http";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+const express = require("express");
+const http = require("http");
+const { fileURLToPath } = require("url");
+const { dirname } = require("path");
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURLToPath(require.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
@@ -19,3 +19,5 @@ app.get("/", (req, res) => {
 server.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;
