@@ -24,30 +24,23 @@ The latter, a woman named Nicolette, was the end user of the group I belonged to
 3. [Reflection](#reflection)
 4. [Sources](#sources)
 
-
-<a name="process"></a>
-
 ## Process
-
-<a name="debrief"></a>
 
 ### Debrief
 
 ...
 
-<a name="first-test"></a>
-
 ### First prototype test | April 11th 2024
 
-*The prototype*
+#### The prototype
 
 In preparation for the first test, I built a simple site that had a few functions. For one: I added the function that allowed Nicolette to make a selection with two clicks that would define a starting point and an end point. In my first considerations, I presumed that it would be more intuitive to make a selection by point than by word so that Nicolette's selection could be more detailed. For example: 
 
-Clicking after the first 'q' in the sentence "_I guessed the query correctly_" and then after the 'y' of 'correctly would return "_eury correctly_".
+Clicking after the first 'q' in the sentence "_I guessed the query correctly_" and then after the 'y' of 'correctly' would return "_eury correctly_".
 
 Additionally, I added the function that allowed Nicolette to copy her selection by pressing 'C' on her keyboard and paste it by pressing 'P' on her keyboard. During the introduction, Nicolette shared that having to press two keys simultaneously in order to copy and paste made this action impossible for her, so I figured that reducing the number of keys requiring a keypress to one would make this easier for her.
 
-*The test*
+#### The test
 
 During the testing, I connected Nicolette's Wacom tablet to my laptop and asked her to move the mouse, which she did. The connection was succesful: so far, so good!
 
@@ -59,9 +52,9 @@ To then still test my next functionality, the copying and the pasting, I made a 
 
 Again, Nicolette shook her head. "My hands won't allow me. Anything with keyboards is too hard for me."
 
-In this moment, I'd realized that I misunderstood her. Instead of not being able to press two keys simultaneously, Nicolette's hands didn't let her press keys at all. Which, yes, in hindsights was completely understandable, as she navigates with her pen and it would be too complicated to have to switch all the time, even if pressing the keys wasn't an issue. During this test, my curiosity to how Nicolette typed when the keys made it so difficult for her was satisfied with a simple answer: she uses a text-to-speech software.
+In this moment, I'd realized that I misunderstood her. Instead of not being able to press two keys simultaneously, Nicolette's hands didn't let her press keys at all. Which, yes, in hindsight was completely understandable, as she navigates with her pen and it would be too complicated to have to switch all the time, even if pressing the keys wasn't an issue. During this test, my curiosity to how Nicolette typed when the keys made it so difficult for her was satisfied with a simple answer: she uses a text-to-speech software.
 
-*Lessons learned*
+#### Lessons learned
 
 This test confronted me with the misconceptions I'd had about Nicolette's abilities and the extent of them. In retrospect, how exactly would one key be better than two, and how would a person with limited motor skills be able to perfectly line up their cursor with a small, almost pixel-sized point on a big screen? This test allowed me to come up with a few lessons learned, and a few ideas as to how to implement them:
 
@@ -76,38 +69,60 @@ Something I also heard was that she struggled with scrolling. My 'application' f
 
 ### Second prototype test | April 17th 2024
 
-*The prototype*
+#### The prototype
 
-/
+Last week's test allowed me to revise the decisions I made before. I chose to approach this from a different angle this time: I was going to almost exaggarate my idea of what Nicolette's needs were, and come up with a solution that perfectly fit those needs. I started by modifying the selection system. First, I made it so that entire words were selected, and then I added a distinctive styling to the first selected node by toggling a class 'selected'. This way, when Nicolette clicked in the text, a word would be selected and she'd immediately know what word that was.
 
-*The test*
+Additionally, I refined this experience / action by increasing the font-size of words that were hovered. This was done by wrapping each word in a `span`, and then scaling the spans up on hover. Now, Nicolette would have two different kinds of visual feedback: a clear background color to indicate her hover and selection, as well as a bigger word to indicate where she was about to click, allowing her to make more exact selections.
 
-/
+Next, I tackled the copy and paste problem by changing those actions from keypresses to buttons. The buttons also offer feedback by increasing in size and changing in color when they're being hovered over, and their `textContent` and color changing when they've been clicked. When the user has copied, the text changes from "Copy" to "Copied!" and the same thing happens for "Paste" and "Pasted!".
 
-*Lessons learned*
+Lastly, I added a "Clear" button to the bottom of the textarea, that clears it when Nicolette is done and satisfied with her selection and whatever changes she has made for it. This empties the textarea and returns the "Pasted!" button to its original state of "Paste".
 
-[...] This test allowed me to come up with a few lessons learned, and a few ideas as to how to implement them:
+#### The test
 
-1. , can be implemented by
-	- ...
-2. , can be implemented by
-	- ...
-3. , can be implemented by
-	- ...
+This time around, I fostered a careful optimism about my solution. Like last time, I asked Nicolette to test whether her stylus worked with my laptop and it did. I tasked her with making a selection.
 
-I also wanted to add 
+She easily brought her pen over to the paragraph. The fact that the words got bigger and highlighted as she went over them excited her. Somewhat of a playful side came to light as she decided what she wished to select. "Maiden..." she said, and clicked. When she removed her cursor from this word, the highlight remained, clarifying what she'd set as her starting point. "And... earn."
+
+At the click on her second word, all text in between got selected with the recognizable standard selection color. This excited her - it was a direct confirmation that her actions had a result.
+
+I directed her to the "Copy" button, which she clicked smoothly. Last time, due to the use of keys, there was no feedback offered to her when she succesfully copied something - but this time, there was. The button changed to "Copied!" and she immediately knew to navigate to "Paste" which, like a pattern, worked the exact same way. During this process, no extra steps - like clicking inside of the textarea to paste - were required nor expected.
+
+Nicolette was already excited about the fact that within half a minute, she had selected, copied and pasted and had known how to do so intuitively. I told her that pasting her selection inside of a textarea meant that she would be able to edit it if needed, and I pointed her to the last button: the "Clear" button. In one click, Nicolette found that her textarea was emptied and her buttons reset for her next selection / copy.
+
+She turned to me with a bright smile on her face. "It works perfectly," she said. "It's all perfect?"
+
+Her positive feedback came with a big feeling of relief. "Really? Is there anything I can add?"
+
+Nicolette couldn't think of anything, but I could. I explained to her that if she made particularly big selections, the text could get too long for the textarea and that I wanted to add 'scroll'-buttons to allow her to navigate in there.
+
+She nodded her head. "I would like that."
+
+#### Lessons learned
+
+Sometimes, teachers will tell you that negative feedback is better than positive feedback, because at least you can *do something and improve* with negative feedback. But today, I disagreed. Seeing Nicolette's genuine happiness and surprise at the ease of the functions and hearing her say that she couldn't think of anything to add was the best possible news, especially in light of this test's contrast with that of last week. Since the functions seemed to perfectly align with Nicolette's needs, I didn't want to take away from any of that by fiddling with them any more. That's why I decided to only focus on additions for next week:
+
+1. Allowing Nicolette to scroll inside of textareas, can be implemented by
+	- Scroll buttons at its side with realistic intervals
+2. Tinkling with the UI to make it more fun to use, can be implemented by
+	- Icons in buttons
+	- A happy color palette
+	- Extra functions by decreasing/increasing font-size
+
+I'm excited to see Nicolette's reaction next week when I've implemented all of this!
 
 ### Third prototype test | April 24th 2024
 
-*The prototype*
+#### The prototype
 
 /
 
-*The test*
+#### The test
 
 /
 
-*Lessons learned*
+#### Lessons learned
 
 [...] This test allowed me to come up with a few lessons learned, and a few ideas as to how to implement them. If I had more time, I would've:
 
