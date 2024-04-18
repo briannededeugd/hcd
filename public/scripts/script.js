@@ -73,6 +73,18 @@ function hidePrevButton() {
  *               SELECT W CLICK
  *=============================================**/
 
+// Function to wrap each word in the textarea with a span element
+function wrapWordsInSpan(textareaElement) {
+	const text = textareaElement.value.trim();
+	const words = text.split(/\s+/);
+
+	// Create a new HTML content with each word wrapped in a span
+	const newContent = words.map((word) => `<span>${word}</span>`).join(" ");
+
+	// Set the textarea's value to the new content with spans
+	textareaElement.value = newContent;
+}
+
 // Wrap all words in a span so I can hover / select
 
 function wrapWordsInSpan(paragraphElement) {

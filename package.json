@@ -2,10 +2,11 @@
   "name": "hcd",
   "version": "1.0.0",
   "description": "My repo for the Human Centered Design course of the Web Design & Development minor at AUAS, academic year 23-24.",
-  "main": "index.js",
+  "main": "server.mjs",
   "scripts": {
     "test": "test",
-    "dev": "node api/index.js"
+    "dev": "node api/server.mjs",
+    "start": "node server.mjs"
   },
   "repository": {
     "type": "git",
