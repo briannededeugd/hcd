@@ -11,18 +11,17 @@ The class got divided into groups of three, each group assigned to a different e
 The latter, a woman named Nicolette, was the end user of the group I belonged to, which meant that it was up to me to build her a copy-, paste- and scrollfunction. I decided to do so in the form of a 'reader', in which I provided Nicolette with a section of the story 'Ash Maiden' (the original story of Cinderella by the brothers Grimm). Nicolette would be able to copy the text, paste it elsewhere, and scroll the page without any hassle!
 
 ## Index
-1. [Process](#process)
-	- [Debrief](#debrief)
-	- [First test](#first-test)
-	- [Teacher's feedback week 1](#teachers-feedback-week-1)
-	- [Second test](#second-test)
-	- [Teacher's feedback week 2](#teachers-feedback-week-2)
-	- [Third test](#third-test)
-2. [The Design Principles](#the-design-principles)
+1. [Debrief](#debrief)
 	- [Study Situation](#study-situation)
 	- [Ignore Conventions](#ignore-conventions)
 	- [Prioritise Identity](#prioritise-identity)
 	- [Add Nonsense]()
+2. [Process](#process)
+	- [First test](#first-test)
+		- [Teacher's feedback week 1](#teachers-feedback-week-1)
+	- [Second test](#second-test)
+		- [Teacher's feedback week 2](#teachers-feedback-week-2)
+	- [Third test](#third-test)
 3. [Reflection](#reflection)
 4. [Sources](#sources)
 
@@ -30,21 +29,10 @@ The latter, a woman named Nicolette, was the end user of the group I belonged to
 
 ### Debrief
 
-#### Study Situation
+Aside from being nominated for the award "Amsterdammer of the Year" in 2016, receiving the royal distinction "Knight in the Order of Orange Nassau" and being a big name in the field of disability rights, Nicolette Besemer is a wheelchair-user. Due to a neurological condition, the part of her nerves that relay information are broken. This means that she has no sensations in her hands: she can't feel what she's holding onto and cannot operate a keyboard as, in her words, her fingers don't know where to go. To still use the web and electronics, Nicolette makes use of speech software and a tablet.
 
-...
+But even with these aids, there are things that Nicolette is unable to do. A few of them being copying, pasting, scrolling, and dragging-and-dropping. It's up to me to build a functionality that solves at least the first three problems for her. I'll do so gladly.
 
-#### Ignore conventions
-
-...
-
-#### Prioritise identity
-
-...
-
-#### Add Nonsense
-
-...
 
 ### First prototype test | April 11th 2024
 
@@ -173,10 +161,35 @@ I also wanted to add
 
 ## Reflection
 
-...
+### Exclusive Design Principles
+
+#### Study Situation
+
+Nicolette tells us during our first meeting that she has limited control over her fingers, and that this means that she is unable to use her keyboard - at least, pressing two keys simultaneously is near-impossible. This meant that I had two options - add single-key functions (interactions) or add buttons. I wanted to make her experience as simple and intuitive as possible, as well as adding many possibilities for feedback and interaction confirmation, which I'm happy to say have both been succesfully integrated.
+
+#### Ignore conventions 
+
+When you think of copying and pasting, your mind probably automatically goes to the keys 'C' and 'V'. So did mine. That's why, for the copy and paste functions, I reduced both actions to those single keys. A test with Nicolette revealed that this was in fact a convention that could and should be ignored. I considered her hands and her assistive tools, and came to the conclusion that these functions should be modified to fit her manner of interacting with her device. She's mouse-bound, to put it simply, so how do you make intuitive, mouse-based interactions? Right - buttons and clicks. I ignored the computer's standard behavior and the standard ideas we have about interactions like these, and built every function behind buttons, providing them with mouse-feedback like hover-effects and user-(visual)feedback like dynamic text. This way, Nicolette and her way of navigating was fully accommodated.
+
+#### Prioritise identity
+
+During the tests, Nicolette told us that she doesn't like dark interfaces. This is why I opted for a light and breezy design that's simple, straight-forward and easy on the eyes. Additionally, I considered changing the text to one about geography in week two as it's one of Nicolette's hobbies, and I put her name in the page's title. This application is just for her, and I hope that by making these changes, that shows.
+
+#### Add Nonsense
+
+I'm going to be honest - I haven't really added nonsense to this app as I was focused on meeting Nicolette's needs and adding additional functionalities that would actually change her user experience and add to the things she'd be able to do with the app. I love this principle, and if I had a bit more time I definitely would have added something playful and fun, but with my limited time, I'm just happy that she is.
+
+### All in all
+
+I'm very satisfied with how this project turned out. At first glance it might appear to be extremely simple and not very impressive - but the thing is that behind the scenes, it is. Every decision was carefully weighed based on research and tests with Nicolette, her abilities considered, her opinions valued. I've learned that when it comes to accessibility, you really can't take it 'too far'. In fact, taking it farther just makes something easier for a whole lot of people.
+
+In a way, I guess that's where my _Add Nonsense_ comes in: I let go of assumptions, I let go of patterns, I overestimated how simple things needed to be and by doing so I hit the nail right on the head. This nonsense led me to the logical, fitting, structured solution that Nicolette is so happy with. I'm very proud it did.
 
 ## Sources
 
-1. One
-2. Two
-3. Three
+1. grid-column-end - CSS: Cascading Style Sheets | MDN. (2023, 18 juli). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end
+2. Material Symbols and Icons - Google Fonts. (z.d.). Google Fonts. https://fonts.google.com/icons?selected=Material+Symbols+Outlined:close:FILL@0;wght@400;GRAD@0;opsz@24&icon.query=close
+3. SOCKET.IO deploy. (2023, 30 maart). Render. https://community.render.com/t/socket-io-deploy/10671
+4. Tutorial - Introduction | Socket.IO. (2024, 5 april). https://socket.io/docs/v4/tutorial/introduction
+5. Using JavaScript & contenteditable | scottohara.me. (2018, 23 november). https://www.scottohara.me/blog/2014/05/08/contenteditable.html
+6. Why position: absolute; and bottom: 0; not being at body’s bottom? (z.d.). Stack Overflow. https://stackoverflow.com/questions/53855904/why-position-absolute-and-bottom-0-not-being-at-bodys-bottom
