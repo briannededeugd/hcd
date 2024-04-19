@@ -2,7 +2,7 @@
 
 Welcome to my repository for the course Human Centered Design during the minor Web Design & Development, academic year 23-24. This course is about the end users that will be using our applications and websites, their needs as well as their struggles. 
 
-As a student learning to program websites, I'm used to learning about the creative and practical aspects of web development. Make a site look good and make sure it works - a sentiment that I have been taught to adopt in my process. But there's an entire group in society has to be considered, a group that is alienalized on the internet, the very place that's growing in importance and increasing in importance for the ability to function in daily life.
+As a student learning to program websites, I'm used to learning about the creative and practical aspects of web development. Make a site look good and make sure it works - a sentiment that I have been taught to adopt in my process. But there's an entire group in society that has to be considered, a group that is alienalized on the internet, the very place that's growing in importance for the ability to function in daily life.
 
 This course is meant to put this group on the foreground, rather than keeping them as an afterthought, and we do that by literally taking them to the foreground of our process.
 
@@ -14,7 +14,9 @@ The latter, a woman named Nicolette, was the end user of the group I belonged to
 1. [Process](#process)
 	- [Debrief](#debrief)
 	- [First test](#first-test)
+	- [Teacher's feedback week 1](#teachers-feedback-week-1)
 	- [Second test](#second-test)
+	- [Teacher's feedback week 2](#teachers-feedback-week-2)
 	- [Third test](#third-test)
 2. [The Design Principles](#the-design-principles)
 	- [Study Situation](#study-situation)
@@ -27,6 +29,20 @@ The latter, a woman named Nicolette, was the end user of the group I belonged to
 ## Process
 
 ### Debrief
+
+#### Study Situation
+
+...
+
+#### Ignore conventions
+
+...
+
+#### Prioritise identity
+
+...
+
+#### Add Nonsense
 
 ...
 
@@ -67,6 +83,16 @@ This test confronted me with the misconceptions I'd had about Nicolette's abilit
 
 Something I also heard was that she struggled with scrolling. My 'application' fit in one viewport, so I decided to focus on the aforementioned points this week.
 
+#### Teacher's feedback Week 1
+
+After testing with Nicolette, I had a feedback session with Vasilis on Friday. I showed him my prototype and told him about Nicolette's opinions. At this point, I had already implemented some of the ideas like the buttons instead of key clicks, and Vasilis also had some thoughts on this:
+
+1. *Copy on select*: it might be a good idea to add the function that when a selection is made it's automatically saved to the clipboard. This reduces the amount of clicks necessary to complete this function.
+	- _Am I implementing this?_: I considered adding this functionality to my app, but then I considered the scenarios Nicolette might be in. For example, what if she merely wants to select and copy a single word? She wouldn't be able to copy her selection until an end-point was also defined. I could also override her one-word selection/copy with the long version that includes an end-point, but I'm still thinking about that.
+2. *Scroll*: when thinking about scroll, I need to consider the effect of such a button-click. How much is one click scrolling? How do I prevent the need for multiple clicks, especially since this is difficult for Nicolette to have to do?
+	- _Am I implementing this?_: I am most definitely implementing this, but I don't think the function will be done by next week, since the fact that the scroll needs to happen and be limited to the inside of the textarea adds a layer of complexity to it.
+3. *Too many buttons*: Vasilis suggested that having a copy and paste button on top of clicking for selection could add up to too many clicks. This blends into his first suggestion: copying on select. However, I think the copy- and paste buttons are very valuable to Nicolette's experience, as they offer immediate and clear feedback about her actions (the copy button saying 'Copied!' when necessary, same for the paste button saying 'Pasted!') so I want to keep them for now and get her opinion during the test next week.
+
 ### Second prototype test | April 17th 2024
 
 #### The prototype
@@ -91,7 +117,7 @@ I directed her to the "Copy" button, which she clicked smoothly. Last time, due 
 
 Nicolette was already excited about the fact that within half a minute, she had selected, copied and pasted and had known how to do so intuitively. I told her that pasting her selection inside of a textarea meant that she would be able to edit it if needed, and I pointed her to the last button: the "Clear" button. In one click, Nicolette found that her textarea was emptied and her buttons reset for her next selection / copy.
 
-She turned to me with a bright smile on her face. "It works perfectly," she said. "It's all perfect?"
+She turned to me with a bright smile on her face. "It works perfectly," she said. "It's all perfect."
 
 Her positive feedback came with a big feeling of relief. "Really? Is there anything I can add?"
 
@@ -111,6 +137,16 @@ Sometimes, teachers will tell you that negative feedback is better than positive
 	- Extra functions by decreasing/increasing font-size
 
 I'm excited to see Nicolette's reaction next week when I've implemented all of this!
+
+#### Teacher's feedback Week 2
+
+After testing with Nicolette on Wednesday, I had two feedback sessions with my teachers. First, I spoke to Tamara on Thursday and filled her in on my progress, choices, and Nicolette's opinions, as well as my plans. She liked the feedback of the cursor and the buttons as well, but had a few additional suggestions:
+
+1. *Character count*: As the textarea has limited space, I'm adding a scroll to this element. To provide Nicolette with even more feedback, I can add a character count somewhere at the bottom of the input.
+	- _Am I implementing this?_: I like the idea of adding to the visual input confirming Nicolette's interaction. I don't think this will be too difficult, so I definitely want to implement this.
+2. *Social actions*: I now have all necessary components to allow Nicolette to do what she needs to, but there's more to add in order to give her even more control. The text Nicolette copies gets pasted in the textarea, but what else? Tamara suggested I add 'social buttons' to share the contents of the textarea on the socials of her choice.
+	- _Am I implementing this?_: This seems like something I'll do if I have the time. I do agree that I should go the extra mile (if this can even be considered doing so), so it's on my list.
+3. *Buttons closer to text*: My classmate Quinten said that the copy and paste buttons might be too far away from the text, but he also commented that this could be because of the size of the TV-screen we were testing on. Since Nicolette didn't have any issues with this, I decided to let it be.
 
 ### Third prototype test | April 24th 2024
 
@@ -134,24 +170,6 @@ I'm excited to see Nicolette's reaction next week when I've implemented all of t
 	- ...
 
 I also wanted to add 
-
-## The Design Principles
-
-### Study Situation
-
-...
-
-### Ignore conventions
-
-...
-
-### Prioritise identity
-
-...
-
-### Add Nonsense
-
-...
 
 ## Reflection
 
