@@ -16,17 +16,24 @@
     /* Colors */
     --color-text: #314754;
     --color-lightertext: #4e6878;
-    --color-bg: #fbe1d0;
+    --color-bg: #f3f2ef;
     --color-accent: #fd8078;
     --color-white: #ffffff;
 }
 
+html {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     font-family: Merriweather, serif;
-    padding: 2vh 10vw;
-    background-image: linear-gradient(to right, #e8e5db 60%, #f3f2ef 60%);
-    /* background-size: 40px 40px; */
-    /* background-image: radial-gradient(circle, #314754 1px, rgba(0, 0, 0, 0) 1px); */
+    /* padding: 2vh 10vw; */
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    background: var(--color-white);
 }
 
 h1 {
@@ -47,6 +54,10 @@ p {
 
 p:has(em) {
     text-align: center;
+}
+
+p:has(#charCount) {
+    text-align: right;
 }
 
 span {
@@ -75,150 +86,189 @@ span:hover,
 
 textarea {
     margin-top: 2.5vh;
-    height: 450px;
-    width: 300px;
+    height: 400px;
+    width: 350px;
     font-family: Merriweather, serif;
     padding: .5em;
     line-height: 1.75;
+    border: 2px solid #83a4aa;
+    border-radius: 16px;
+
+    &:focus-visible {
+        border: 2px solid var(--color-accent);
+    }
 }
 
 .active {
     background-color: var(--color-lightertext) !important;
+    border: none !important;
     color: white !important;
-}
-/* ---------- */
-/* PAGINATION */
-/* ---------- */
 
-.pages > .page:not(:first-of-type) {
-    display: none;
+    &::before {
+        color: white !important;
+    }
 }
 
-.showpage {
-    display: block !important;
+
+textarea::placeholder {
+    font-style: italic;
+    color: rgb(173, 172, 172);
 }
-
-.hidepage {
-    display: none;
-}
-
-/* The buttons */
-#buttons {
-    position: absolute;
-    visibility: hidden;
-    left: 0;
-    right: 0;
-    bottom: 2vh;
-    margin: 0 15vw;
-    display: flex;
-    justify-content: space-between;
-    height: 5vh;
-    align-items: center;
-
-
-    background: none;
-    /* box-shadow: 0px 1px 2px var(--color-text); */
-    border-radius: 16px;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-#buttons input,
-.interaction button,
-#clear {
-    padding: .75em 1.5em;
-    font-size: 1em;
-    border-radius: 30px;
-    background-color: var(--color-text);
-    color: var(--color-white);
-    border: none;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-}
-
-#buttons input {
-    padding: 1em 2em;
-}
-
-#prevpage {
-    opacity: 0;
-}
-
-#buttons input:hover,
-.interaction button:hover,
-#clear:hover {
-    background-color: var(--color-lightertext);
-    transform: scale(1.25);
-    color: white;
-}
-
 /* ------- */
 /* CONTENT */
 /* ------- */
 
 .content {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#corner {
+    background-color: #83a4aa;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-height: 100px;
+    min-width: 100px;
+    z-index: 1;
 }
 
 .story {
-    grid-area: 1 / 1 / 5 / 9;
+    max-width: 65%;
+    padding: 2em 5em;
+    border-right: 2px solid #83a4aa;
 }
 
 .interaction {
-    grid-area: 5 / 1 / 6 / 8;
+    padding: 2em 5em;
+    border-top-right-radius: 40px;
+    background-color: var(--color-white);
+    z-index: 2;
+
+    h2 {
+        margin-bottom: .5em;
+    }
+
+    button {
+        height: max-content;
+        border: none;
+        border-radius: 25px;
+        border: 2px solid #83a4aa;
+        background-color: var(--color-white);
+        color: black;
+        padding: 1em 1.5em;
+        font-size: 1em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            border: 2px solid var(--color-accent);
+            transform: scale(1.1);
+            transform-origin: bottom center;
+            color: var(--color-accent);
+
+            &::before {
+                color: var(--color-accent);
+            }
+        }
+    }
 }
 
-/* -------- */
-/* THE MENU */
-/* -------- */
-
-#menu {
+.controls {
     display: flex;
-    position: absolute;
-    right: -300px;
-    top: 2vh; 
-    gap: 0;
+    align-items: center;
+    background-color: #83a4aa;
+    border-bottom-left-radius: 40px;
+    padding: 0 5em;
+    padding-right: 4em;
+
+    & div {
+        min-height: 100%;
+        width: max-content;
+        padding-top: 2em;
+        display: flex;
+        gap: 10px;
+
+        button {
+            height: 100%;
+            border: none;
+            border-top-right-radius: 25px;
+            border-top-left-radius: 25px;
+            border-bottom: 2px solid #83a4aa;
+            background-color: var(--color-white);
+            padding: 1em 1.5em .75em;
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                /* background-color: #e8c9bc; */
+                transform: scale(1.1);
+                transform-origin: bottom center;
+                color: var(--color-accent);
+
+                &::before {
+                    color: var(--color-accent);
+                }
+            }
+        }
+    }
+
+    & div:first-of-type {
+        margin-right: auto;
+    }
+
+    & div:last-of-type {
+        margin-left: auto;
+    }
 }
 
-#menu > * {
-    margin: 0;
+/* ------- */
+/* BUTTONS */
+/* ------- */
+
+button {
+    display: flex;
+    align-items: center;
+    transition: transform .3s ease-in-out;
+
+    &::before {
+        display: inline;
+        line-height: 1;
+        margin-right: .25em;
+        padding: 0;
+        font-family: "Material Symbols Outlined";
+        font-size: 1em;
+        color: black;
+    }
 }
 
-#menu label:has(input[type=checkbox]) {
-    background-color: white;
-    border: black solid 1px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: .75em 1em;
-    font-size: 1em;
-    transform: rotate(-180deg);
-    cursor: pointer;
-    text-align: center;
-    writing-mode: tb-rl;
+#copyselection::before {
+    content: "content_copy";
 }
 
-#menu label:has(input[type=checkbox]:checked) {
-    background-color: black;
-    color: white;
+#pasteselection::before {
+    content: "content_paste";
 }
 
-input[type=checkbox] {
-    height: 0.1px;
-    width: 0.1px;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
+#clear::before {
+    content: "close";
 }
 
-#menu .options {
-    background-color: #cddce9;
-    padding: .75em 1em;
+#scrollup::before {
+    content: "arrow_upward";
 }
 
-.showmenu {
-    right: 0 !important;
+#scrolldown::before {
+    content: "arrow_downward";
+}
+
+#recopy::before {
+    content: "content_copy";
 }
 
 /* ---------------------- */
@@ -232,26 +282,4 @@ input[type=checkbox] {
 .selection {
     background-color: yellow;
     display: inline;
-}
-
-/* -------------- */
-/* RESPONSIVENESS */
-/* -------------- */
-
-@media (min-width: 750px) {
-    body {
-        padding: 2vh 5vw;
-    }
-
-    #buttons {
-        padding: 0;
-    }
-
-    .story {
-        grid-area: 1 / 1 / 8 / 6;
-    }
-
-    .interaction {
-        grid-area: 1 / 7 / 8 / 8;
-    }
 }

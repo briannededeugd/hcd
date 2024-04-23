@@ -1,73 +1,8 @@
 console.log("Never making a morphological chart again hopefully!");
 
-const allPages = document.querySelectorAll(".page");
-const prevButton = document.querySelector("#prevpage");
-const nextButton = document.querySelector("#nextpage");
-const pageStatus = document.querySelector("#pagenumber");
+const scrollUpButton = document.querySelector("#scrollup");
+const scrollDownButton = document.querySelector("#scrolldown");
 let index = 1;
-
-// Function to show the current page based on the index
-function showCurrentPage() {
-	allPages.forEach((page, i) => {
-		if (i + 1 === index) {
-			page.classList.remove("hidepage");
-			page.classList.add("showpage");
-		} else {
-			page.classList.remove("showpage");
-			page.classList.add("hidepage");
-		}
-	});
-}
-
-// Event listener for the next button
-nextButton.addEventListener("click", () => {
-	if (index < allPages.length) {
-		index++;
-		pageStatus.textContent = index;
-		console.log("THEE INDEX:", index);
-		console.log(pageStatus);
-		showCurrentPage();
-	} else {
-		index = 1;
-		pageStatus.textContent = index;
-		showCurrentPage();
-	}
-
-	nextPageButtonText();
-	hidePrevButton();
-});
-
-// Event listener for the previous button
-prevButton.addEventListener("click", () => {
-	if (index > 1) {
-		index--;
-		pageStatus.textContent = index;
-		showCurrentPage();
-	} else {
-		index = allPages.length;
-		pageStatus.textContent = index;
-		showCurrentPage();
-	}
-
-	nextPageButtonText();
-	hidePrevButton();
-});
-
-function nextPageButtonText() {
-	if (index === allPages.length) {
-		nextButton.value = "Start over";
-	} else {
-		nextButton.value = "Next page";
-	}
-}
-
-function hidePrevButton() {
-	if (index === 1) {
-		prevButton.style.opacity = 0;
-	} else {
-		prevButton.style.opacity = 1;
-	}
-}
 
 /**============================================
  *               SELECT W CLICK
@@ -86,7 +21,6 @@ function wrapWordsInSpan(textareaElement) {
 }
 
 // Wrap all words in a span so I can hover / select
-
 function wrapWordsInSpan(paragraphElement) {
 	// Get the text content of the paragraph
 	const text = paragraphElement.textContent.trim();
@@ -162,6 +96,9 @@ function selectWordsBetween(start, end) {
 	const selection = window.getSelection();
 	selection.removeAllRanges(); // Clear any existing selections
 	selection.addRange(range);
+
+	pasteButton.classList.remove("active");
+	pasteButton.textContent = "Paste";
 }
 
 // Initialize variables to store start and endpoint of selection
@@ -204,6 +141,18 @@ copyButton.addEventListener("click", function (event) {
 const pasteButton = document.getElementById("pasteselection");
 const textArea = document.querySelector("textarea");
 
+// Function to scroll textarea content up
+scrollUpButton.addEventListener("click", (event) => {
+	event.preventDefault();
+	textArea.scrollTop -= 100; // Adjust the scroll amount as needed
+});
+
+// Function to scroll textarea content down
+scrollDownButton.addEventListener("click", (event) => {
+	event.preventDefault();
+	textArea.scrollTop += 100; // Adjust the scroll amount as needed
+});
+
 pasteButton.addEventListener("click", function (event) {
 	navigator.clipboard.readText().then(function (copiedText) {
 		// Get the current selection start and end positions
@@ -223,10 +172,15 @@ pasteButton.addEventListener("click", function (event) {
 		// Adjust the selection to cover the pasted text
 		const newSelectionPosition = selectionStart + copiedText.length;
 		textArea.setSelectionRange(newSelectionPosition, newSelectionPosition);
+
+		updateCharCount();
 	});
 
 	copyButton.classList.remove("active");
 	copyButton.textContent = "Copy";
+
+	copyAll.classList.remove("active");
+	copyAll.textContent = "Copy this";
 
 	pasteButton.classList.add("active");
 	pasteButton.textContent = "Pasted!";
@@ -239,149 +193,43 @@ clearButton.addEventListener("click", function (event) {
 	pasteButton.classList.remove("active");
 	pasteButton.textContent = "Paste";
 
+	copyAll.classList.remove("active");
+	copyAll.textContent = "Copy this";
+
 	textArea.value = "";
+	updateCharCount();
 });
 
-/**========================================================================
- *                           OLD CODE
- *========================================================================**/
+// COPY ALL
 
-// let startNode = null;
-// let startOffset = null;
+const copyAll = document.getElementById("recopy");
 
-// paragraphs.forEach((paragraph) => {
-// 	paragraph.addEventListener(
-// 		"click",
-// 		function (event) {
-// 			if (!startNode) {
-// 				// First click, set start point
-// 				startNode = event.target.firstChild;
-// 				startOffset = getOffset(startNode, event.clientX, event.clientY);
-// 			} else {
-// 				// Second click, set end point and select text in between
-// 				const endNode = event.target.firstChild;
-// 				const endOffset = getOffset(endNode, event.clientX, event.clientY);
+copyAll.addEventListener("click", function (event) {
+	textArea.select();
 
-// 				const selection = window.getSelection();
-// 				const range = document.createRange();
+	// Edit states
+	copyButton.classList.remove("active");
+	copyButton.textContent = "Copy";
 
-// 				range.setStart(startNode, startOffset);
-// 				range.setEnd(endNode, endOffset);
+	pasteButton.classList.add("active");
+	pasteButton.textContent = "Pasted!";
 
-// 				selection.removeAllRanges();
-// 				selection.addRange(range);
+	copyAll.classList.add("active");
+	copyAll.textContent = "Copied edited text!";
 
-// 				// Reset start point for next selection
-// 				startNode = null;
-// 				startOffset = null;
-// 			}
-// 		},
-// 		false
-// 	);
-// });
+	// Copy to clipboard
+	navigator.clipboard.writeText(textArea.value);
+});
 
-// function getOffset(node, x, y) {
-// 	const range = document.createRange();
-// 	range.selectNode(node);
-// 	const rect = range.getBoundingClientRect();
-// 	range.detach();
-// 	const charIndex = getCharIndexAtPoint(node, x, y, rect);
-// 	return charIndex;
-// }
+// CHARACTER COUNT
+var charCount = document.getElementById("charCount");
 
-// function getCharIndexAtPoint(node, x, y, rect) {
-// 	const len = node.textContent.length;
-// 	for (let i = 0; i < len; i++) {
-// 		const range = document.createRange();
-// 		range.setStart(node, i);
-// 		range.setEnd(node, i + 1);
-// 		const charRect = range.getBoundingClientRect();
-// 		if (
-// 			charRect.left <= x &&
-// 			charRect.right >= x &&
-// 			charRect.top <= y &&
-// 			charRect.bottom >= y
-// 		) {
-// 			return i;
-// 		}
-// 	}
-// 	return len;
-// }
+function updateCharCount() {
+	var remainingChars = textArea.value.length;
+	charCount.textContent = remainingChars;
+}
 
-// /**============================================
-//  *               COPY N PASTE
-//  *=============================================**/
+// Update character count on input event
+textArea.addEventListener("input", updateCharCount);
 
-// document.addEventListener("keydown", function (event) {
-// 	if (event.key === "c" || event.key === "C") {
-// 		// Check if any text is selected
-// 		var selectedText = window.getSelection().toString().trim();
-// 		if (selectedText !== "") {
-// 			// Copy the selected text to clipboard
-// 			navigator.clipboard
-// 				.writeText(selectedText)
-// 				.then(function () {
-// 					console.log("Text copied to clipboard: " + selectedText);
-// 				})
-// 				.catch(function (error) {
-// 					console.error("Error copying text: ", error);
-// 				});
-// 		}
-// 	} else if (event.key === "Backslash" || event.keyCode === 220) {
-// 		// Paste the copied text
-// 		navigator.clipboard
-// 			.readText()
-// 			.then(function (copiedText) {
-// 				// Insert the copied text where the cursor is
-// 				var cursorPosition = getCaretPosition();
-// 				var textBeforeCursor = document.activeElement.value.substring(
-// 					0,
-// 					cursorPosition
-// 				);
-// 				var textAfterCursor =
-// 					document.activeElement.value.substring(cursorPosition);
-// 				var newText = textBeforeCursor + copiedText + textAfterCursor;
-// 				document.activeElement.value = newText;
-// 				// Move cursor to the end of the pasted text
-// 				setCaretPosition(cursorPosition + copiedText.length);
-// 			})
-// 			.catch(function (error) {
-// 				console.error("Error pasting text: ", error);
-// 			});
-// 	}
-// });
-
-// // Function to get the caret position in a textarea or input field
-// function getCaretPosition() {
-// 	var el = document.activeElement;
-// 	if (el.selectionStart) {
-// 		return el.selectionStart;
-// 	} else if (document.selection) {
-// 		el.focus();
-// 		var r = document.selection.createRange();
-// 		if (r == null) {
-// 			return 0;
-// 		}
-// 		var re = el.createTextRange(),
-// 			rc = re.duplicate();
-// 		re.moveToBookmark(r.getBookmark());
-// 		rc.setEndPoint("EndToStart", re);
-// 		return rc.text.length;
-// 	}
-// 	return 0;
-// }
-
-// // Function to set the caret position in a textarea or input field
-// function setCaretPosition(position) {
-// 	var el = document.activeElement;
-// 	if (el.setSelectionRange) {
-// 		el.focus();
-// 		el.setSelectionRange(position, position);
-// 	} else if (el.createTextRange) {
-// 		var range = el.createTextRange();
-// 		range.collapse(true);
-// 		range.moveEnd("character", position);
-// 		range.moveStart("character", position);
-// 		range.select();
-// 	}
-// }
+updateCharCount();
