@@ -140,11 +140,27 @@ After testing with Nicolette on Wednesday, I had two feedback sessions with my t
 
 #### The prototype
 
-/
+For my final test with Nicolette, I wanted to do a complete stylistic overhaul. I decided to start anew with my controls as I added additional functionalities. My idea was to create a sort of toolbar at the top of the page and split the content in two: there's the story, and the interaction - the latter is the text field Nicolette's selected text gets pasted into.
+
+The toolbar aligns with the content, so the tools (buttons) for interacting with the story are above the story, and the tools for interacting with the pasted text are above of the section 'interaction'. This way, it's more intuitive and telling what certain buttons will do and what they're meant for.
+
+As for functionalities, I added the ability to scroll within the text area with clear 'Scroll Up' and 'Scroll Down' buttons. For now, they scroll by 100 pixels per click, but I'm intending to ask Nicolette whether this value is too big or too small as she navigates. I also added a 'Copy This' button to copy the text in the textarea, since Nicolette can select snippets of the text and combine them, and she might want to then be able to copy what she's made of it. Lastly, I added a character count at the bottom of the textarea, where Nicolette can see how much is inside of it. This is important because when she pastes text into this area, she needs to receive proper feeedback of it.
+
+Here's the stylistic differences between my previous and current version:
+
+<img src="/images/readme-oldsite.png" width="300px"> <img src="/images/readme-newsite.png" width="300px">
+
+Aside from being able to 're-copy' the text, I want to give Nicolette the ability to share her text in more ways. Maybe she would like to email her text to her grandson, or text it to a friend, or Airdrop it to a coworker. For this, I'm thinking of adding the Safari share menu, but that's if this next text is succesfull.
+
+I view this week's additions as enhancements, I hope Nicolette sees them the same way!
 
 #### The test
 
-/
+As we do every test again, my first order of business was making sure that Nicolette's stylus worked with my laptop. When it did, I tasked her with making a selection and pasting it, then making another and pasting that, too. This way, the textarea was overflowing with text, as intended. I point Nicolette to the character count that offers her feedback every time she pastes something, and then tell her that she can scroll up and down with the buttons.
+
+"The way the scrolling works now, is that each time you click, it scrolls a certain distance. Is this distance too little or too big for your liking?" I ask.
+
+...
 
 #### Lessons learned
 
