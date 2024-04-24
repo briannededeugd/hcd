@@ -146,9 +146,9 @@ The toolbar aligns with the content, so the tools (buttons) for interacting with
 
 As for functionalities, I added the ability to scroll within the text area with clear 'Scroll Up' and 'Scroll Down' buttons. For now, they scroll by 100 pixels per click, but I'm intending to ask Nicolette whether this value is too big or too small as she navigates. I also added a 'Copy This' button to copy the text in the textarea, since Nicolette can select snippets of the text and combine them, and she might want to then be able to copy what she's made of it. Lastly, I added a character count at the bottom of the textarea, where Nicolette can see how much is inside of it. This is important because when she pastes text into this area, she needs to receive proper feeedback of it.
 
-Here's the stylistic differences between my previous and current version:
+Here are the stylistic differences between my previous and current version:
 
-<img src="/images/readme-oldsite.png" width="300px"> <img src="/images/readme-newsite.png" width="300px">
+<img src="/public/images/readme-oldsite.png" width="300px"> <img src="/public/images/readme-newsite.png" width="300px">
 
 Aside from being able to 're-copy' the text, I want to give Nicolette the ability to share her text in more ways. Maybe she would like to email her text to her grandson, or text it to a friend, or Airdrop it to a coworker. For this, I'm thinking of adding the Safari share menu, but that's if this next text is succesfull.
 
