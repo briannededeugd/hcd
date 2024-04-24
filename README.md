@@ -148,7 +148,7 @@ As for functionalities, I added the ability to scroll within the text area with 
 
 Here are the stylistic differences between my previous and current version:
 
-<img src="/public/images/readme-oldsite.png" width="300px"> <img src="/public/images/readme-newsite.png" width="300px">
+<img src="/public/images/readme-oldsite.png" width="500px"> <img src="/public/images/readme-newsite.png" width="500px">
 
 Aside from being able to 're-copy' the text, I want to give Nicolette the ability to share her text in more ways. Maybe she would like to email her text to her grandson, or text it to a friend, or Airdrop it to a coworker. For this, I'm thinking of adding the Safari share menu, but that's if this next text is succesfull.
 
@@ -158,24 +158,39 @@ I view this week's additions as enhancements, I hope Nicolette sees them the sam
 
 As we do every test again, my first order of business was making sure that Nicolette's stylus worked with my laptop. When it did, I tasked her with making a selection and pasting it, then making another and pasting that, too. This way, the textarea was overflowing with text, as intended. I point Nicolette to the character count that offers her feedback every time she pastes something, and then tell her that she can scroll up and down with the buttons.
 
-"The way the scrolling works now, is that each time you click, it scrolls a certain distance. Is this distance too little or too big for your liking?" I ask.
+"The way the scrolling works now, is that each time you click, it scrolls a certain distance. Is this distance too little or too big for your liking?" I asked.
 
-...
+"It's just right," said Nicolette. "I don't like when it scrolls too fast, I want to still see where I am in the text, just like this."
+
+Nicolette also liked the fact that she could edit her pasted text. Last week I explained to her that her pasted text was editable in the textarea, which meant she could cut and paste however she wished to. This time, she was also able to copy this edited text for other purposes like sharing, as well as scrolling inside of there.
+
+The additions I made were perfect, Nicolette said. She was amazingly happy with the new abilities added to the site and even said there was nothing to improve or add. I ended my assessment by telling her, "Well, that's it," and she said, "It's a lot, it's much more than last week! I'm constantly surprised!"
+
+Even though she was happy last week, I'm glad that I've been able to surprise her once again with things that she maybe didn't ask for, but did end up enhancing her experience. She appreciated the feedback she got in every step of the way, especially since this meant that she didn't need an explanation from me. Everything worked as it was supposed to, and it was all greatly appreciated.
+
 
 #### Lessons learned
 
-[...] This test allowed me to come up with a few lessons learned, and a few ideas as to how to implement them. If I had more time, I would've:
-
-1. , can be implemented by
-	- ...
-2. , can be implemented by
-	- ...
-3. , can be implemented by
-	- ...
-
-I also wanted to add 
+This test made me realize how much the different interactions make a big difference for Nicolette. From the very start, I aimed to give her as much feedback as possible and I'm very proud to see the effect of these additions. If I had more time, I probably would have dove into sharing on different platforms like Whatsapp, Twitter and Facebook. But seeing how Nicolette's dreams have been realized with the functions I've built, I'm as relieved as she is to have what I've got before the deadline. A happy Nicolette, a happy app, a happy me! 
 
 ## Reflection
+
+As I said, I'm very happy with what I've got!
+
+I'm super proud of:
+- Making selections with two clicks;
+- The visual feedback on clicks that tells the user immediately the selection has been succesful;
+- The copy- and paste with buttons functionalities;
+- User selection getting pasted into the textarea directly;
+- Scrolling up and down inside the textarea with buttons;
+- Character count feedback that updates dynamically;
+- The ability to copy the pasted text again, since it is editable;
+- Button states and selection states
+
+I've also had to let go of some things:
+- Sharing on socials
+
+Well, technically that's _one_ thing. So, I'm happy anyway!
 
 ### Exclusive Design Principles
 
@@ -189,7 +204,7 @@ When you think of copying and pasting, your mind probably automatically goes to 
 
 #### Prioritise identity
 
-During the tests, Nicolette told us that she doesn't like dark interfaces. This is why I opted for a light and breezy design that's simple, straight-forward and easy on the eyes. Additionally, I considered changing the text to one about geography in week two as it's one of Nicolette's hobbies, and I put her name in the page's title. This application is just for her, and I hope that by making these changes, that shows.
+During the tests, Nicolette told us that she doesn't like dark interfaces. This is why I opted for a light and breezy design that's simple, straight-forward and easy on the eyes. Additionally, I considered changed the text to a story about geography in week two as it's one of Nicolette's hobbies where she's the main character, and I put her name in the page's title. This application is just for her, and I hope that by making these changes, that shows.
 
 #### Add Nonsense
 
@@ -205,7 +220,6 @@ In a way, I guess that's where my _Add Nonsense_ comes in: I let go of assumptio
 
 1. grid-column-end - CSS: Cascading Style Sheets | MDN. (2023, 18 juli). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end
 2. Material Symbols and Icons - Google Fonts. (z.d.). Google Fonts. https://fonts.google.com/icons?selected=Material+Symbols+Outlined:close:FILL@0;wght@400;GRAD@0;opsz@24&icon.query=close
-3. SOCKET.IO deploy. (2023, 30 maart). Render. https://community.render.com/t/socket-io-deploy/10671
-4. Tutorial - Introduction | Socket.IO. (2024, 5 april). https://socket.io/docs/v4/tutorial/introduction
-5. Using JavaScript & contenteditable | scottohara.me. (2018, 23 november). https://www.scottohara.me/blog/2014/05/08/contenteditable.html
-6. Why position: absolute; and bottom: 0; not being at body’s bottom? (z.d.). Stack Overflow. https://stackoverflow.com/questions/53855904/why-position-absolute-and-bottom-0-not-being-at-bodys-bottom
+3. The Project Gutenberg eBook of Grimm’s Fairy Tales, by Frances Jenkins Olcott (Editor). (z.d.). https://www.gutenberg.org/files/52521/52521-h/52521-h.htm#hdr_10
+4. Using JavaScript & contenteditable | scottohara.me. (2018, 23 november). https://www.scottohara.me/blog/2014/05/08/contenteditable.html
+5. Why position: absolute; and bottom: 0; not being at body’s bottom? (z.d.). Stack Overflow. https://stackoverflow.com/questions/53855904/why-position-absolute-and-bottom-0-not-being-at-bodys-bottom
