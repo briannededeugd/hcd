@@ -1,5 +1,7 @@
 # Human Centered Design
 
+<img src="/public/images/hcd.gif" width="750px">
+
 Welcome to my repository for the course Human Centered Design during the minor Web Design & Development, academic year 23-24. This course is about the end users that will be using our applications and websites, their needs as well as their struggles. 
 
 As a student learning to program websites, I'm used to learning about the creative and practical aspects of web development. Make a site look good and make sure it works - a sentiment that I have been taught to adopt in my process. But there's an entire group in society that has to be considered, a group that is alienalized on the internet, the very place that's growing in importance for the ability to function in daily life.
