@@ -41,8 +41,8 @@ body {
 }
 
 h1 {
-    font-size: clamp(1.25em, .5em + 2vw, 2.25em);
-    margin-bottom: 0;
+    font-size: clamp(1.25em, .5em + 1.5vw, 2.25em);
+    margin: 0;
 }
 
 h5 {

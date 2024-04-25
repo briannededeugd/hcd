@@ -1,5 +1,3 @@
-console.log("Never making a morphological chart again hopefully!");
-
 const scrollUpButton = document.querySelector("#scrollup");
 const scrollDownButton = document.querySelector("#scrolldown");
 let index = 1;
@@ -69,7 +67,7 @@ function selectWordsBetween(start, end) {
 	const range = document.createRange(); // Create a new Range object
 
 	// Get the common ancestor container for the start and end points
-	const commonAncestor = start.closest("section"); // Assuming the common ancestor is the section with id "page-1"
+	const commonAncestor = start.closest("section");
 
 	// If there is no common ancestor, return
 	if (!commonAncestor) {
